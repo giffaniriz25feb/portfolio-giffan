@@ -13,7 +13,7 @@ I specialize in transforming complex operational data into structured insights t
 ---
 
 ## 🌐 Live Portfolio
-👉 https://your-portfolio.vercel.app
+👉 https://portfolio-giffan.vercel.app/
 
 ---
 
