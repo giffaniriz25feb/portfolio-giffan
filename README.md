@@ -8,7 +8,7 @@
 
 🎯 **Data Analyst focused on Operations, Logistics, and Process Improvement**
 
-I specialize in transforming complex operational data into structured insights that improve efficiency, reduce errors, and support better decision-making.
+This portfolio represents how I approach data problems — not just analyzing, but structuring solutions that can be implemented in real operational environments.
 
 ---
 
