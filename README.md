@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![Portfolio Preview](./public/preview.png)
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/Next.js-000?logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)
 
-First, run the development server:
+# 👋 Hi, I'm Giffani Rizky Febrian
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🎯 **Data Analyst focused on Operations, Logistics, and Process Improvement**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I specialize in transforming complex operational data into structured insights that improve efficiency, reduce errors, and support better decision-making.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🌐 Live Portfolio
+👉 https://your-portfolio.vercel.app
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🧠 About This Project
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This portfolio is built as a **data-driven personal platform** to showcase:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Analytical thinking
+- Real-world project experience
+- Data automation and workflow optimization
+- Professional storytelling through structured UI
 
-## Deploy on Vercel
+The design emphasizes clarity, performance, and modern interaction patterns inspired by enterprise-level dashboards and corporate campaign websites.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ⚙️ Tech Stack
+
+- **Framework**: Next.js
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animation**: Framer Motion
+- **Deployment**: Vercel
+
+---
+
+## ✨ Key Features
+
+- 🎨 Modern responsive UI (desktop-first, mobile-ready)
+- ⚡ Smooth animations & interaction design
+- 📊 Data-focused storytelling structure
+- 🧩 Modular component-based architecture
+- 🌙 Dark mode support
+- 📬 Functional contact form (Formspree integration)
+
+---
+
+## 📂 Project Structure
+src/
+├── app/
+├── components/
+├── sections/
+└── data/
+
+---
+
+## 📈 Highlights
+
+- Built with a **system thinking approach** to reflect real-world analytics workflows
+- Designed for **recruiter readability** and fast information scanning
+- Combines **technical depth + professional presentation**
+
+---
+
+## 📬 Contact
+
+- LinkedIn: https://linkedin.com/in/giffanifebrian
+- Email: giffaniriz25@gmail.com
+
+---
+
+## 📝 Notes
+
+This project is continuously improved as part of my learning journey in data analytics, automation, and system design.
+
+---
+
+## ⭐ If you find this interesting
+
+Feel free to explore, fork, or connect with me!
