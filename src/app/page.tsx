@@ -1154,9 +1154,9 @@ export default function App() {
                       <div className="absolute top-full left-0 w-44 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-lg opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 delay-75 hover:bg-emerald-50 dark:hover:bg-emerald-900/20">
 
                         <div className="flex flex-col py-2">
-                          {link.dropdown.map((item) => (
+                          {link.dropdown.map((item,i) => (
                             <a
-                              key={item.name}
+                              key={i}
                               href={item.href}
                               className="px-4 py-2 text-[14px] font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 transition"
                             >
@@ -1213,8 +1213,9 @@ export default function App() {
                         </span>
 
                         <div className="ml-3 flex flex-col gap-2">
-                          {link.dropdown.map((item) => (
+                          {link.dropdown.map((item,i) => (
                             <a
+                              key={i}
                               onClick={() => handleNavClick(item.href)}
                               className="cursor-pointer text-base font-semibold text-slate-500 dark:text-slate-400"
                             >
