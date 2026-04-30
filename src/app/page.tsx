@@ -1250,7 +1250,7 @@ export default function App() {
             >
               <span className="px-5 py-2 rounded-full bg-emerald-100 text-emerald-700 
              dark:bg-emerald-900/40 dark:text-emerald-300 text-xs font-bold tracking-widest uppercase border border-emerald-200 dark:border-emerald-800/50">
-                Interactive Portfolio
+                Portfolio 2026
               </span>
             </motion.span>
 
