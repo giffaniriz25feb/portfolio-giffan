@@ -13,27 +13,31 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Giffani Rizky Febrian | Data Analyst Portfolio",
-  description: "Portfolio of Giffani Rizky Febrian - Data Analyst focused on Operations, Logistics, Process Improvement, and Data Automation.",
+  description: "Turning data into actionable insights for operational excellence.",
 
-  metadataBase: new URL("https://giffan.vercel.app"),
-    
   openGraph: {
-    title: "Giffani Rizky Febrian | Portfolio",
-    description: "Data Analyst focused on Operations, Logistics, and Quality Improvement.",
-    url: "https://giffan.vercel.app",
-    siteName: "Giffani Portfolio",
-    locale: "en_US",
-    type: "website",
+    title: "Giffani Rizky Febrian | Data Analyst Portfolio",
+    description: "Data Automation • Logistics Analytics • Process Optimization",
+    url: "https://giffan.vercel.app/og-image.png",
+    siteName: "Giffan Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.png", // <-- ini penting
         width: 1200,
         height: 630,
-        alt: "Giffani Rizky Febrian Portfolio",
       },
     ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Giffani Portfolio",
+    description: "Data-driven portfolio",
+    images: ["/og-image.png"],
   },
 };
 
