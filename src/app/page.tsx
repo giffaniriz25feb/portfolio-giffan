@@ -1232,7 +1232,7 @@ export default function App() {
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 w-full overflow-hidden">
 
         {/* Background Glow */}
-        <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 pointer-events-none -z-10">
           <div className="absolute top-1/2 left-1/2 w-[700px] h-[700px] -translate-x-1/2 -translate-y-1/2 bg-emerald-500/10 blur-[140px] rounded-full" />
           <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-blue-500/10 blur-[120px] rounded-full" />
         </div>
@@ -1308,7 +1308,7 @@ export default function App() {
             <div className="relative w-full h-[460px] rounded-3xl overflow-hidden shadow-2xl group">
 
               {/* BACKGROUND COLLAGE (MOVING) */}
-              <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 <div className="flex w-[200%] h-full animate-marquee-slow opacity-70">
 
                   {[...Array(2)].map((_, loop) => (
@@ -1333,13 +1333,13 @@ export default function App() {
 
               {/* BLUR DEPTH */}
               <div className="
-                absolute inset-0 pointer-events-none
+                absolute inset-0 pointer-events-none pointer-events-none
                 [mask-image:linear-gradient(to_left,transparent_40%,black_70%,black)]
                 backdrop-blur-[3px]
               " />
 
               {/* MAIN IMAGE (LEFT + FADE TO RIGHT) */}
-              <div className="absolute inset-0 flex justify-start">
+              <div className="absolute inset-0 pointer-events-none flex justify-start">
 
                 <div className="w-[65%] h-full overflow-hidden">
 
@@ -1362,7 +1362,7 @@ export default function App() {
 
               {/* LEFT DARK GRADIENT (TEXT SUPPORT) */}
               <div className="
-                absolute inset-0
+                absolute inset-0 pointer-events-none
                 bg-gradient-to-r
                 from-slate-900/80
                 via-slate-900/40
@@ -1372,13 +1372,13 @@ export default function App() {
 
               {/* SUBTLE LIGHTING */}
               <div className="
-                absolute inset-0
+                absolute inset-0 pointer-events-none
                 bg-[radial-gradient(circle_at_35%_40%,rgba(255,255,255,0.10),transparent_60%)]
               " />
 
               {/* INTERACTION GLOW */}
               <div className="
-                absolute inset-0 opacity-0 group-hover:opacity-100
+                absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100
                 transition duration-500
               " />
 
@@ -1420,7 +1420,7 @@ export default function App() {
               />
 
               {/* overlay gradient biar text kebaca */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
 
               {/* TEXT OVERLAY */}
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/50 shadow-xl">
@@ -1635,7 +1635,7 @@ export default function App() {
                   className="w-full h-full object-cover object-center"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
                 <div className="absolute bottom-4 left-4 right-4 flex items-end gap-4">
 
@@ -1979,7 +1979,7 @@ export default function App() {
                 />
 
                 {/* overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
                 {/* LOGO (optional) */}
                 {ORGANIZATIONS[selectedOrg].logo && (
@@ -2119,12 +2119,12 @@ export default function App() {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                    className="absolute inset-0 pointer-events-none w-full h-full object-cover group-hover:scale-105 transition duration-700"
                   />
                 )}
 
                 {/* OVERLAY */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
 
                 {/* CONTENT */}
                 <div className="relative p-6 flex flex-col justify-end h-full z-10">
@@ -2219,7 +2219,7 @@ export default function App() {
                   )}
 
                   {/* OVERLAY */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
                   {/* OPTIONAL LABEL */}
                   <div className="absolute bottom-4 left-4 text-white text-sm font-medium">
@@ -2426,7 +2426,7 @@ export default function App() {
             ref={eduScrollRef}
             onScroll={handleEduScroll}
             className={`
-              flex gap-20 pb-16 px-6 px-6 md:px-12 pl-8 pr-8 scroll-snap-x snap-mandatory overflow-x-auto scrollbar-none
+              flex gap-20 pb-16 px-6 px-6 md:px-12 pl-8 pr-8 overflow-x-auto scrollbar-none
               ${EDUCATION.length < 3 ? "justify-center" : ""}
             `}
           >
@@ -2486,7 +2486,7 @@ export default function App() {
                   href={edu.link}
                   target="_blank"
                   className="
-                    snap-start mt-10 relative w-[320px] min-h-[230px]
+                    mt-10 relative w-[320px] min-h-[230px]
                     rounded-3xl overflow-hidden shadow-lg
                     hover:shadow-2xl transition-all duration-300
                   "
@@ -2494,11 +2494,11 @@ export default function App() {
                   {/* IMAGE */}
                   <img
                     src={edu.image}
-                    className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-105 transition duration-700"
+                    className="absolute inset-0 pointer-events-none w-full h-full object-cover scale-100 group-hover:scale-105 transition duration-700"
                   />
 
                   {/* DARK OVERLAY (FIX TEXT VISIBILITY) */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
+                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
 
                   {/* TEXT */}
                   <div className="absolute bottom-5 left-5 right-5 text-white">
@@ -2625,7 +2625,7 @@ export default function App() {
 
                       {/* GLOW FOLLOW CURSOR */}
                       <div
-                        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500"
+                        className="pointer-events-none absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition duration-500"
                         style={{
                           background:
                             "radial-gradient(600px circle at var(--x) var(--y), rgba(16,185,129,0.15), transparent 40%)",
