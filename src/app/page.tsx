@@ -2432,8 +2432,8 @@ export default function App() {
             ref={eduScrollRef}
             onScroll={handleEduScroll}
             className={`
-              flex gap-20 pb-16 px-6 overflow-x-auto scrollbar-none
-              ${EDUCATION.length < 3 ? "justify-start" : ""}
+              flex gap-10 md:gap-20 pb-16 px-6 md:px-12 overflow-x-auto scrollbar-none justify-start
+              ${EDUCATION.length < 3 ? "md:justify-center" : ""}
             `}
           >
 
