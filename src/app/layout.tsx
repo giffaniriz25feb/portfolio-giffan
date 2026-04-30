@@ -16,6 +16,23 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Giffani Rizky Febrian | Data Analyst Portfolio",
   description: "Portfolio of Giffani Rizky Febrian - Data Analyst focused on Operations, Logistics, Process Improvement, and Data Automation.",
+
+   openGraph: {
+    title: "Giffani Rizky Febrian | Portfolio",
+    description: "Data Analyst focused on Operations, Logistics, and Quality Improvement.",
+    url: "https://giffan.vercel.app",
+    siteName: "Giffani Portfolio",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Giffani Rizky Febrian Portfolio",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
