@@ -1232,7 +1232,7 @@ export default function App() {
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 w-full overflow-hidden">
 
         {/* Background Glow */}
-        <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute inset-0 -z-10">
           <div className="absolute top-1/2 left-1/2 w-[700px] h-[700px] -translate-x-1/2 -translate-y-1/2 bg-emerald-500/10 blur-[140px] rounded-full" />
           <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-blue-500/10 blur-[120px] rounded-full" />
         </div>
@@ -1368,19 +1368,17 @@ export default function App() {
                 via-slate-900/40
                 via-25%
                 to-transparent
-                pointer-events-none
               " />
 
               {/* SUBTLE LIGHTING */}
               <div className="
                 absolute inset-0
                 bg-[radial-gradient(circle_at_35%_40%,rgba(255,255,255,0.10),transparent_60%)]
-                pointer-events-none
               " />
 
               {/* INTERACTION GLOW */}
               <div className="
-                absolute inset-0 opacity-0 pointer-events-none group-hover:opacity-100
+                absolute inset-0 opacity-0 group-hover:opacity-100
                 transition duration-500
               " />
 
