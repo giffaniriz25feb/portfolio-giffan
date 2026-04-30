@@ -1174,56 +1174,56 @@ export default function App() {
           </div>
         </div>
 
-          {/* Mobile Nav */}
-          <AnimatePresence>
-            {isMenuOpen && (
-              <motion.div 
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                className="lg:hidden overflow-hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl"
-              >
-                <div className="flex flex-col px-6 py-6 gap-5">
-                  {navLinks.map((link) => (
-                    <div key={link.name}>
+        {/* Mobile Nav */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div 
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="lg:hidden overflow-hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl"
+            >
+              <div className="flex flex-col px-6 py-6 gap-5">
+                {navLinks.map((link) => (
+                  <div key={link.name}>
 
-                      {!link.dropdown ? (
-                        <a
-                          href={link.href}
-                          onClick={() => setIsMenuOpen(false)}
-                          className="text-base font-semibold text-slate-700 dark:text-slate-200"
-                        >
+                     {!link.dropdown ? (
+                      <a
+                        href={link.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-base font-semibold text-slate-700 dark:text-slate-200"
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <div className="flex flex-col gap-2">
+
+                        <span className="text-base font-semibold text-slate-700 dark:text-slate-200">
                           {link.name}
-                        </a>
-                      ) : (
-                        <div className="flex flex-col gap-2">
+                        </span>
 
-                          <span className="text-base font-semibold text-slate-700 dark:text-slate-200">
-                            {link.name}
-                          </span>
-
-                          <div className="ml-3 flex flex-col gap-2">
-                            {link.dropdown.map((item,i) => (
-                              <a
-                                key={i}
-                                href={item.href}
-                                onClick={() => setIsMenuOpen(false)}
-                                className="text-base font-semibold text-slate-500 dark:text-slate-400"
-                              >
-                                {item.name}
-                              </a>
-                            ))}
-                          </div>
-
+                        <div className="ml-3 flex flex-col gap-2">
+                          {link.dropdown.map((item,i) => (
+                            <a
+                              key={i}
+                              href={item.href}
+                              onClick={() => setIsMenuOpen(false)}
+                              className="text-base font-semibold text-slate-500 dark:text-slate-400"
+                            >
+                              {item.name}
+                            </a>
+                          ))}
                         </div>
-                      )}
 
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                      </div>
+                    )}
+
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       {/* TONE A: HERO SECTION */}
@@ -2423,108 +2423,98 @@ export default function App() {
           <div
             ref={eduScrollRef}
             onScroll={handleEduScroll}
-            className="overflow-x-auto scrollbar-none"
+            className={`
+              flex gap-20 pb-16 px-6 overflow-x-auto scrollbar-none
+              ${EDUCATION.length < 3 ? "justify-center" : ""}
+            `}
           >
-            <div
-              className={`
-                flex gap-20 pb-16 px-6 w-max
-                ${EDUCATION.length < 3 ? "mx-auto" : ""}
-              `}
-            >
 
-              {/* LEFT SPACER */}
-              <div className="w-6 shrink-0" />
+            {EDUCATION.map((edu, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: 80 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: idx * 0.2 }}
+                className="relative flex flex-col items-center min-w-[320px] group"
+              >
 
-              {EDUCATION.map((edu, idx) => (
-                <motion.div
-                  key={idx}
-                  className="relative flex flex-col items-center min-w-[320px] group"
-                  initial={{ opacity: 0, x: 80 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ delay: idx * 0.2 }}
-                >
+                {/* YEAR */}
+                <span className="
+                  text-emerald-600 dark:text-emerald-400
+                  font-bold tracking-wide text-sm mb-2
+                  transition-all duration-300
+                  group-hover:scale-110
+                ">
+                  {edu.period}
+                </span>
 
-                  {/* YEAR */}
-                  <span className="
-                    text-emerald-600 dark:text-emerald-400
-                    font-bold tracking-wide text-sm mb-2
-                    transition-all duration-300
-                    group-hover:scale-110
-                  ">
-                    {edu.period}
-                  </span>
-
-                  {/* DOT */}
-                  <div className="relative z-10">
-                    <div
-                      className="
-                        w-5 h-5 rounded-full
-                        bg-white dark:bg-slate-900
-                        border-4 border-emerald-500 dark:border-emerald-400
-                        transition-all duration-300
-                        group-hover:scale-125
-                        group-hover:shadow-[0_0_18px_rgba(16,185,129,0.8)]
-                      "
-                    />
-                  </div>
-
-                  {/* CONNECTING LINE (DOT → DOT) */}
-                  {idx !== EDUCATION.length - 1 && (
-                    <motion.div
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.2 + 0.2, duration: 0.6 }}
-                      className="
-                        absolute top-[10px] left-[calc(100%+4px)] h-[2px] w-[100px]
-                        origin-right
-                        bg-gradient-to-l from-emerald-400 to-slate-300
-                        dark:from-emerald-400 dark:to-slate-700
-                      "
-                    />
-                  )}
-
-                  {/* CARD */}
-                  <motion.a
-                    href={edu.link}
-                    target="_blank"
+                {/* DOT */}
+                <div className="relative z-10">
+                  <div
                     className="
-                      mt-10 relative w-[320px] min-h-[230px]
-                      rounded-3xl overflow-hidden shadow-lg
-                      hover:shadow-2xl transition-all duration-300
+                      w-5 h-5 rounded-full
+                      bg-white dark:bg-slate-900
+                      border-4 border-emerald-500 dark:border-emerald-400
+                      transition-all duration-300
+                      group-hover:scale-125
+                      group-hover:shadow-[0_0_18px_rgba(16,185,129,0.8)]
                     "
-                  >
-                    {/* IMAGE */}
-                    <img
-                      src={edu.image}
-                      className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-105 transition duration-700"
-                    />
+                  />
+                </div>
 
-                    {/* DARK OVERLAY (FIX TEXT VISIBILITY) */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
+                {/* CONNECTING LINE (DOT → DOT) */}
+                {idx !== EDUCATION.length - 1 && (
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.2 + 0.2, duration: 0.6 }}
+                    className="
+                      absolute top-[10px] left-[calc(100%+4px)] h-[2px] w-[100px]
+                      origin-right
+                      bg-gradient-to-l from-emerald-400 to-slate-300
+                      dark:from-emerald-400 dark:to-slate-700
+                    "
+                  />
+                )}
 
-                    {/* TEXT */}
-                    <div className="absolute bottom-5 left-5 right-5 text-white">
-                      <h3 className="text-lg font-bold leading-tight drop-shadow">
-                        {edu.name}
-                      </h3>
+                {/* CARD */}
+                <motion.a
+                  href={edu.link}
+                  target="_blank"
+                  className="
+                    mt-10 relative w-[320px] min-h-[230px]
+                    rounded-3xl overflow-hidden shadow-lg
+                    hover:shadow-2xl transition-all duration-300
+                  "
+                >
+                  {/* IMAGE */}
+                  <img
+                    src={edu.image}
+                    className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-105 transition duration-700"
+                  />
 
-                      <p className="text-sm opacity-90">
-                        {edu.degree}
-                      </p>
+                  {/* DARK OVERLAY (FIX TEXT VISIBILITY) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
 
-                      <p className="text-xs opacity-90 mt-2 leading-relaxed">
-                        {edu.highlight}
-                      </p>
-                    </div>
-                  </motion.a>
-                </motion.div>
-              ))}
+                  {/* TEXT */}
+                  <div className="absolute bottom-5 left-5 right-5 text-white">
+                    <h3 className="text-lg font-bold leading-tight drop-shadow">
+                      {edu.name}
+                    </h3>
 
-              {/* RIGHT SPACER */}
-              <div className="w-6 shrink-0" />
-            </div>
+                    <p className="text-sm opacity-90">
+                      {edu.degree}
+                    </p>
+
+                    <p className="text-xs opacity-90 mt-2 leading-relaxed">
+                      {edu.highlight}
+                    </p>
+                  </div>
+                </motion.a>
+              </motion.div>
+            ))}
           </div>
 
           {/* PROGRESS SCROLL */}
