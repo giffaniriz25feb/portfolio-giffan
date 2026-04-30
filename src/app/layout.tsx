@@ -19,7 +19,7 @@ export const metadata = {
 
   openGraph: {
     title: "Giffani Rizky Febrian | Data Analyst Portfolio",
-    description: "Data Automation • Logistics Analytics • Process Optimization",
+    description: "Data Analyst focused on Operations, Logistics, and Quality Improvement.",
     url: "https://giffan.vercel.app",
     siteName: "Giffan Portfolio",
     images: [
@@ -36,8 +36,8 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Giffani Portfolio",
-    description: "Data-driven portfolio",
-    images: ["/og-image.png"],
+    description: "Data Analyst focused on Operations, Logistics, and Data Automation.",
+    images: ["https://giffan.vercel.app/og-image.png"],
   },
 };
 
