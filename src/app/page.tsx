@@ -762,6 +762,17 @@ export default function App() {
     return Object.values(newErrors).every((e) => !e)
   }
 
+  const handleNavClick = (href: string) => {
+    setIsMenuOpen(false);
+
+    setTimeout(() => {
+      const el = document.querySelector(href);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 200); // kasih delay biar menu nutup dulu
+  };
+
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (selectedAchievement === null) return
@@ -1189,9 +1200,8 @@ export default function App() {
 
                      {!link.dropdown ? (
                       <a
-                        href={link.href}
-                        onClick={() => setIsMenuOpen(false)}
-                        className="text-base font-semibold text-slate-700 dark:text-slate-200"
+                        onClick={() => handleNavClick(link.href)}
+                        className="cursor-pointer text-base font-semibold text-slate-700 dark:text-slate-200"
                       >
                         {link.name}
                       </a>
@@ -1203,12 +1213,10 @@ export default function App() {
                         </span>
 
                         <div className="ml-3 flex flex-col gap-2">
-                          {link.dropdown.map((item,i) => (
+                          {link.dropdown.map((item) => (
                             <a
-                              key={i}
-                              href={item.href}
-                              onClick={() => setIsMenuOpen(false)}
-                              className="text-base font-semibold text-slate-500 dark:text-slate-400"
+                              onClick={() => handleNavClick(item.href)}
+                              className="cursor-pointer text-base font-semibold text-slate-500 dark:text-slate-400"
                             >
                               {item.name}
                             </a>
@@ -2424,7 +2432,7 @@ export default function App() {
             ref={eduScrollRef}
             onScroll={handleEduScroll}
             className={`
-              flex gap-20 pb-16 px-6 overflow-x-auto scrollbar-none
+              flex gap-10 md:gap-20 pb-16 px-6 md:px-12 snap-x snap-mandatory scroll-smooth overflow-x-auto scrollbar-none
               ${EDUCATION.length < 3 ? "justify-center" : ""}
             `}
           >
@@ -2484,7 +2492,8 @@ export default function App() {
                   href={edu.link}
                   target="_blank"
                   className="
-                    mt-10 relative w-[320px] min-h-[230px]
+                    relative flex flex-col items-center
+                    min-w-[260px] md:min-w-[320px] snap-center group
                     rounded-3xl overflow-hidden shadow-lg
                     hover:shadow-2xl transition-all duration-300
                   "
