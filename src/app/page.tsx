@@ -1204,9 +1204,9 @@ export default function App() {
                         </span>
 
                         <div className="ml-3 flex flex-col gap-2">
-                          {link.dropdown.map((item) => (
+                          {link.dropdown.map((item,i) => (
                             <a
-                              key={item.name}
+                              key={i}
                               href={item.href}
                               onClick={() => setIsMenuOpen(false)}
                               className="text-base font-semibold text-slate-500 dark:text-slate-400"
