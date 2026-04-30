@@ -20,11 +20,11 @@ export const metadata = {
   openGraph: {
     title: "Giffani Rizky Febrian | Data Analyst Portfolio",
     description: "Data Automation • Logistics Analytics • Process Optimization",
-    url: "https://giffan.vercel.app/og-image.png",
+    url: "https://giffan.vercel.app",
     siteName: "Giffan Portfolio",
     images: [
       {
-        url: "/og-image.png", // <-- ini penting
+        url: "https://giffan.vercel.app/og-image.png",
         width: 1200,
         height: 630,
       },
