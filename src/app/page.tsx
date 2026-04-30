@@ -1172,6 +1172,7 @@ export default function App() {
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
+        </div>
 
           {/* Mobile Nav */}
           <AnimatePresence>
@@ -1223,7 +1224,6 @@ export default function App() {
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
       </nav>
 
       {/* TONE A: HERO SECTION */}
