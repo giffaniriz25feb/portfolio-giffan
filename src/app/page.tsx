@@ -1191,8 +1191,16 @@ export default function App() {
                     {!link.dropdown ? (
                       <a
                         href={link.href}
-                        onClick={() => setIsMenuOpen(false)}
-                        className="text-base font-semibold text-slate-700 dark:text-slate-200"
+                        onClick={(e) => {
+                          e.preventDefault();
+
+                          const target = document.querySelector(link.href);
+                          if (target) {
+                            target.scrollIntoView({ behavior: "smooth" });
+                          }
+
+                          setIsMenuOpen(false);
+                        }}
                       >
                         {link.name}
                       </a>
