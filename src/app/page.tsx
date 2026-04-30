@@ -1172,58 +1172,58 @@ export default function App() {
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
-        </div>
 
-        {/* Mobile Nav */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div 
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              className="lg:hidden overflow-hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl"
-            >
-              <div className="flex flex-col px-6 py-6 gap-5">
-                {navLinks.map((link) => (
-                  <div key={link.name}>
+          {/* Mobile Nav */}
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div 
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                className="lg:hidden overflow-hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl"
+              >
+                <div className="flex flex-col px-6 py-6 gap-5">
+                  {navLinks.map((link) => (
+                    <div key={link.name}>
 
-                     {!link.dropdown ? (
-                      <a
-                        href={link.href}
-                        onClick={() => setIsMenuOpen(false)}
-                        className="text-base font-semibold text-slate-700 dark:text-slate-200"
-                      >
-                        {link.name}
-                      </a>
-                    ) : (
-                      <div className="flex flex-col gap-2">
-
-                        <span className="text-base font-semibold text-slate-700 dark:text-slate-200">
+                      {!link.dropdown ? (
+                        <a
+                          href={link.href}
+                          onClick={() => setIsMenuOpen(false)}
+                          className="text-base font-semibold text-slate-700 dark:text-slate-200"
+                        >
                           {link.name}
-                        </span>
+                        </a>
+                      ) : (
+                        <div className="flex flex-col gap-2">
 
-                        <div className="ml-3 flex flex-col gap-2">
-                          {link.dropdown.map((item,i) => (
-                            <a
-                              key={i}
-                              href={item.href}
-                              onClick={() => setIsMenuOpen(false)}
-                              className="text-base font-semibold text-slate-500 dark:text-slate-400"
-                            >
-                              {item.name}
-                            </a>
-                          ))}
+                          <span className="text-base font-semibold text-slate-700 dark:text-slate-200">
+                            {link.name}
+                          </span>
+
+                          <div className="ml-3 flex flex-col gap-2">
+                            {link.dropdown.map((item,i) => (
+                              <a
+                                key={i}
+                                href={item.href}
+                                onClick={() => setIsMenuOpen(false)}
+                                className="text-base font-semibold text-slate-500 dark:text-slate-400"
+                              >
+                                {item.name}
+                              </a>
+                            ))}
+                          </div>
+
                         </div>
+                      )}
 
-                      </div>
-                    )}
-
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </nav>
 
       {/* TONE A: HERO SECTION */}
