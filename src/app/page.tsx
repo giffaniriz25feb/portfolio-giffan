@@ -2432,8 +2432,8 @@ export default function App() {
             ref={eduScrollRef}
             onScroll={handleEduScroll}
             className={`
-              flex gap-20 pb-16 px-6 overflow-x-auto scrollbar-none
-              ${EDUCATION.length < 3 ? "justify-center" : ""}
+              flex gap-20 pb-16 px-6 snap-x snap-mandatory overflow-x-auto scrollbar-none
+              ${EDUCATION.length < 3 ? "justify-start" : ""}
             `}
           >
 
@@ -2492,7 +2492,7 @@ export default function App() {
                   href={edu.link}
                   target="_blank"
                   className="
-                    mt-10 relative w-[320px] min-h-[230px]
+                    mt-10 relative min-w-[260px] md:min-w-[320px] snap-center
                     rounded-3xl overflow-hidden shadow-lg
                     hover:shadow-2xl transition-all duration-300
                   "
