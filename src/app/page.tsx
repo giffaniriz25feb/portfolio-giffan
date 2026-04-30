@@ -762,6 +762,18 @@ export default function App() {
     return Object.values(newErrors).every((e) => !e)
   }
 
+  const handleScroll = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const yOffset = -80; // tinggi navbar
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+
+    setIsMenuOpen(false);
+  };
+
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (selectedAchievement === null) return
@@ -1188,13 +1200,12 @@ export default function App() {
                   <div key={link.name}>
 
                      {!link.dropdown ? (
-                      <a
-                        href={link.href}
-                        onClick={() => setIsMenuOpen(false)}
-                        className="text-base font-semibold text-slate-700 dark:text-slate-200"
+                      <button
+                        onClick={() => handleScroll(link.href.replace("#", ""))}
+                        className="text-base font-semibold text-slate-700 dark:text-slate-200 text-left"
                       >
                         {link.name}
-                      </a>
+                      </button>
                     ) : (
                       <div className="flex flex-col gap-2">
 
@@ -1203,15 +1214,14 @@ export default function App() {
                         </span>
 
                         <div className="ml-3 flex flex-col gap-2">
-                          {link.dropdown.map((item,i) => (
-                            <a
-                              key={i}
-                              href={item.href}
-                              onClick={() => setIsMenuOpen(false)}
+                          {link.dropdown.map((item) => (
+                            <button
+                              key={item.name}
+                              onClick={() => handleScroll(item.href.replace("#", ""))}
                               className="text-base font-semibold text-slate-500 dark:text-slate-400"
                             >
                               {item.name}
-                            </a>
+                            </button>
                           ))}
                         </div>
 
@@ -1400,7 +1410,7 @@ export default function App() {
 
       {/* TONE A: ABOUT SECTION */}
       <Section id="about">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 relative">
             <span className="text-emerald-600 dark:text-emerald-400 font-bold tracking-wider uppercase text-sm mb-2 block">
               Who I Am
@@ -1459,7 +1469,7 @@ export default function App() {
       </Section>
 
       {/* TONE B: SKILLS SECTION */}
-      <Section id="skills" className="bg-slate-50 dark:bg-slate-900/40 border-y border-slate-100 dark:border-slate-800/50">
+      <Section id="skills" className="scroll-mt-24 bg-slate-50 dark:bg-slate-900/40 border-y border-slate-100 dark:border-slate-800/50">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
             Technical & Soft Skills
@@ -1505,7 +1515,7 @@ export default function App() {
 
       {/* TONE A: PROFESSIONAL EXPERIENCE SECTION */}
       <Section id="experience">
-        <div className="text-center mb-16">
+        <div className="scroll-mt-24 text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
             Professional Experience
           </h2>
@@ -1793,7 +1803,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* TONE B: ORGANIZATIONAL EXPERIENCE SECTION (HORIZONTAL SCROLL) */}
-      <section id="organization" className="py-20 md:py-32 w-full bg-slate-50 dark:bg-slate-900/40 text-slate-900 dark:text-white overflow-hidden relative transition-colors duration-500 border-y border-slate-100 dark:border-slate-800/50">
+      <section id="organization" className="scroll-mt-24 py-20 md:py-32 w-full bg-slate-50 dark:bg-slate-900/40 text-slate-900 dark:text-white overflow-hidden relative transition-colors duration-500 border-y border-slate-100 dark:border-slate-800/50">
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12 relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -2088,7 +2098,7 @@ export default function App() {
 
       {/* TONE A: PROJECTS SECTION */}
       <Section id="projects">
-        <div className="text-center mb-16">
+        <div className="scroll-mt-24 text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
             Selected Projects
           </h2>
@@ -2400,7 +2410,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* TONE B: EDUCATION (HORIZONTAL TIMELINE) */}
-      <Section id="education" className="bg-slate-50 dark:bg-slate-900/40">
+      <Section id="education" className="scroll-mt-24 bg-slate-50 dark:bg-slate-900/40">
         
         {/* HEADER */}
         <div className="text-center mb-12">
@@ -2424,7 +2434,7 @@ export default function App() {
             ref={eduScrollRef}
             onScroll={handleEduScroll}
             className={`
-              flex gap-20 pb-16 px-6 overflow-x-auto scrollbar-none
+              flex gap-6 md:gap-20 pb-16 px-4 md:px-6 overflow-x-auto snap-x snap-mandatory scrollbar-none
               ${EDUCATION.length < 3 ? "justify-center" : ""}
             `}
           >
@@ -2483,11 +2493,7 @@ export default function App() {
                 <motion.a
                   href={edu.link}
                   target="_blank"
-                  className="
-                    mt-10 relative w-[320px] min-h-[230px]
-                    rounded-3xl overflow-hidden shadow-lg
-                    hover:shadow-2xl transition-all duration-300
-                  "
+                  className="relative flex flex-col items-center min-w-[85%] md:min-w-[320px] snap-center"
                 >
                   {/* IMAGE */}
                   <img
@@ -2529,7 +2535,7 @@ export default function App() {
       </Section>
 
       {/* TONE A: CERTIFICATION (SLIDE CARD)*/}
-      <Section id="certifications" className="bg-white dark:bg-slate-950">
+      <Section id="certifications" className="scroll-mt-24 bg-white dark:bg-slate-950">
         <div
           className={`
             max-w-7xl mx-auto px-6 md:px-12 mb-16 relative z-10 transition-all duration-500
@@ -2829,7 +2835,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* TONE B: ACHIEVEMENT SECTION */}
-      <Section id="achievement" className="bg-slate-50 dark:bg-slate-900/40 border-y border-slate-100 dark:border-slate-800/50">
+      <Section id="achievement" className="scroll-mt-24 bg-slate-50 dark:bg-slate-900/40 border-y border-slate-100 dark:border-slate-800/50">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-12 items-center">
 
           {/* LEFT */}
@@ -3046,7 +3052,7 @@ export default function App() {
 
       {/* TONE A: CONTACT SECTION */}
       <Section id="contact">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div className="scroll-mt-24 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
           
           {/* Contact Info */}
           <div>
