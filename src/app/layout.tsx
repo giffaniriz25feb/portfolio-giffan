@@ -17,7 +17,9 @@ export const metadata: Metadata = {
   title: "Giffani Rizky Febrian | Data Analyst Portfolio",
   description: "Portfolio of Giffani Rizky Febrian - Data Analyst focused on Operations, Logistics, Process Improvement, and Data Automation.",
 
-   openGraph: {
+  metadataBase: new URL("https://giffan.vercel.app"),
+    
+  openGraph: {
     title: "Giffani Rizky Febrian | Portfolio",
     description: "Data Analyst focused on Operations, Logistics, and Quality Improvement.",
     url: "https://giffan.vercel.app",
