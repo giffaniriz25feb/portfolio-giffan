@@ -2426,10 +2426,12 @@ export default function App() {
             ref={eduScrollRef}
             onScroll={handleEduScroll}
             className={`
-              flex gap-20 pb-16 px-6 px-6 md:px-12 pl-8 pr-8 overflow-x-auto scrollbar-none
+              flex gap-20 pb-16 overflow-x-auto scrollbar-none
               ${EDUCATION.length < 3 ? "justify-center" : ""}
             `}
           >
+            {/* LEFT SPACER */}
+            <div className="min-w-[24px]" />
 
             {EDUCATION.map((edu, idx) => (
               <motion.div
@@ -2517,6 +2519,10 @@ export default function App() {
                 </motion.a>
               </motion.div>
             ))}
+
+            {/* RIGHT SPACER */}
+            <div className="min-w-[24px]" />
+            
           </div>
 
           {/* PROGRESS SCROLL */}
