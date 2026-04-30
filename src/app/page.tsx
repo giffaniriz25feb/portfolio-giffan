@@ -1184,11 +1184,10 @@ export default function App() {
               className="lg:hidden overflow-hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl"
             >
               <div className="flex flex-col px-6 py-6 gap-5">
-                <div className="flex flex-col px-6 py-6 gap-5">
                 {navLinks.map((link) => (
                   <div key={link.name}>
 
-                    {!link.dropdown ? (
+                     {!link.dropdown ? (
                       <a
                         href={link.href}
                         onClick={() => setIsMenuOpen(false)}
@@ -1221,7 +1220,6 @@ export default function App() {
 
                   </div>
                 ))}
-              </div>
               </div>
             </motion.div>
           )}
