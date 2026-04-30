@@ -2423,98 +2423,108 @@ export default function App() {
           <div
             ref={eduScrollRef}
             onScroll={handleEduScroll}
-            className={`
-              flex gap-20 pb-16 px-6 overflow-x-auto scrollbar-none
-              ${EDUCATION.length < 3 ? "justify-center" : ""}
-            `}
+            className="overflow-x-auto scrollbar-none"
           >
+            <div
+              className={`
+                flex gap-20 pb-16 px-6 w-max
+                ${EDUCATION.length < 3 ? "mx-auto" : ""}
+              `}
+            >
 
-            {EDUCATION.map((edu, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: 80 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ delay: idx * 0.2 }}
-                className="relative flex flex-col items-center min-w-[320px] group"
-              >
+              {/* LEFT SPACER */}
+              <div className="w-6 shrink-0" />
 
-                {/* YEAR */}
-                <span className="
-                  text-emerald-600 dark:text-emerald-400
-                  font-bold tracking-wide text-sm mb-2
-                  transition-all duration-300
-                  group-hover:scale-110
-                ">
-                  {edu.period}
-                </span>
-
-                {/* DOT */}
-                <div className="relative z-10">
-                  <div
-                    className="
-                      w-5 h-5 rounded-full
-                      bg-white dark:bg-slate-900
-                      border-4 border-emerald-500 dark:border-emerald-400
-                      transition-all duration-300
-                      group-hover:scale-125
-                      group-hover:shadow-[0_0_18px_rgba(16,185,129,0.8)]
-                    "
-                  />
-                </div>
-
-                {/* CONNECTING LINE (DOT → DOT) */}
-                {idx !== EDUCATION.length - 1 && (
-                  <motion.div
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.2 + 0.2, duration: 0.6 }}
-                    className="
-                      absolute top-[10px] left-[calc(100%+4px)] h-[2px] w-[100px]
-                      origin-right
-                      bg-gradient-to-l from-emerald-400 to-slate-300
-                      dark:from-emerald-400 dark:to-slate-700
-                    "
-                  />
-                )}
-
-                {/* CARD */}
-                <motion.a
-                  href={edu.link}
-                  target="_blank"
-                  className="
-                    mt-10 relative w-[320px] min-h-[230px]
-                    rounded-3xl overflow-hidden shadow-lg
-                    hover:shadow-2xl transition-all duration-300
-                  "
+              {EDUCATION.map((edu, idx) => (
+                <motion.div
+                  key={idx}
+                  className="relative flex flex-col items-center min-w-[320px] group"
+                  initial={{ opacity: 0, x: 80 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ delay: idx * 0.2 }}
                 >
-                  {/* IMAGE */}
-                  <img
-                    src={edu.image}
-                    className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-105 transition duration-700"
-                  />
 
-                  {/* DARK OVERLAY (FIX TEXT VISIBILITY) */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
+                  {/* YEAR */}
+                  <span className="
+                    text-emerald-600 dark:text-emerald-400
+                    font-bold tracking-wide text-sm mb-2
+                    transition-all duration-300
+                    group-hover:scale-110
+                  ">
+                    {edu.period}
+                  </span>
 
-                  {/* TEXT */}
-                  <div className="absolute bottom-5 left-5 right-5 text-white">
-                    <h3 className="text-lg font-bold leading-tight drop-shadow">
-                      {edu.name}
-                    </h3>
-
-                    <p className="text-sm opacity-90">
-                      {edu.degree}
-                    </p>
-
-                    <p className="text-xs opacity-90 mt-2 leading-relaxed">
-                      {edu.highlight}
-                    </p>
+                  {/* DOT */}
+                  <div className="relative z-10">
+                    <div
+                      className="
+                        w-5 h-5 rounded-full
+                        bg-white dark:bg-slate-900
+                        border-4 border-emerald-500 dark:border-emerald-400
+                        transition-all duration-300
+                        group-hover:scale-125
+                        group-hover:shadow-[0_0_18px_rgba(16,185,129,0.8)]
+                      "
+                    />
                   </div>
-                </motion.a>
-              </motion.div>
-            ))}
+
+                  {/* CONNECTING LINE (DOT → DOT) */}
+                  {idx !== EDUCATION.length - 1 && (
+                    <motion.div
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.2 + 0.2, duration: 0.6 }}
+                      className="
+                        absolute top-[10px] left-[calc(100%+4px)] h-[2px] w-[100px]
+                        origin-right
+                        bg-gradient-to-l from-emerald-400 to-slate-300
+                        dark:from-emerald-400 dark:to-slate-700
+                      "
+                    />
+                  )}
+
+                  {/* CARD */}
+                  <motion.a
+                    href={edu.link}
+                    target="_blank"
+                    className="
+                      mt-10 relative w-[320px] min-h-[230px]
+                      rounded-3xl overflow-hidden shadow-lg
+                      hover:shadow-2xl transition-all duration-300
+                    "
+                  >
+                    {/* IMAGE */}
+                    <img
+                      src={edu.image}
+                      className="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-105 transition duration-700"
+                    />
+
+                    {/* DARK OVERLAY (FIX TEXT VISIBILITY) */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
+
+                    {/* TEXT */}
+                    <div className="absolute bottom-5 left-5 right-5 text-white">
+                      <h3 className="text-lg font-bold leading-tight drop-shadow">
+                        {edu.name}
+                      </h3>
+
+                      <p className="text-sm opacity-90">
+                        {edu.degree}
+                      </p>
+
+                      <p className="text-xs opacity-90 mt-2 leading-relaxed">
+                        {edu.highlight}
+                      </p>
+                    </div>
+                  </motion.a>
+                </motion.div>
+              ))}
+
+              {/* RIGHT SPACER */}
+              <div className="w-6 shrink-0" />
+            </div>
           </div>
 
           {/* PROGRESS SCROLL */}
